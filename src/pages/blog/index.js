@@ -5,22 +5,20 @@ import Seo from '../../components/seo'
 
 const BlogPage = ({ data }) => {
   return (
-      <Layout pageTitle="My Blog Posts">
-        <ul>
-      {
-        data.allMdx.nodes.map(node => (
-          <article key={node.id}>
-            <h2>
-              <Link to={`blog/${node.frontmatter.slug}`}>
-              {node.frontmatter.title}
-              </Link>
-            </h2>
-            <p>Posted: {node.frontmatter.date}</p>
-            <p>{node.excerpt}</p>
-          </article>
-        ))
-      }
-      </ul>
+    <Layout pageTitle="My Blog Posts">
+         {
+          data.allMdx.nodes.map(node => (
+            <article key={node.id}>
+               <h2>
+                 <Link to={`blog/${node.frontmatter.slug}`}>
+                  {node.frontmatter.title}
+                 </Link>
+               </h2>
+               <p>Posted: {node.frontmatter.date}</p>
+              <p>{node.excerpt}</p>
+            </article>
+          ))
+        } 
       <p>My cool posts will go in here</p>
     </Layout>
   )
